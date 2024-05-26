@@ -1,41 +1,30 @@
-import * as React from "react";
-import { alpha } from "@mui/material";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
-import Link from "@mui/material/Link";
-import Stack from "@mui/material/Stack";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
+import * as React from 'react';
 
-export default function Hero() {
+import Box from '@mui/material/Box';
+import Divider from '@mui/material/Divider';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+import Hero from '../../components/Hero';
+import Diensten from './sections/Diensten';
+import OverMij from './sections/OverMij';
+import Reviews from './sections/Reviews';
+import FAQ from './sections/FAQ';
+import { Button, Stack, Typography } from '@mui/material';
+
+
+export default function Home() {
+
   return (
-    <Box
-      id="hero"
-      sx={(theme) => ({
-        width: "100%",
-        backgroundImage:"linear-gradient(180deg, #CEE5FD, #FFF)",
-        backgroundSize: "100% 20%",
-        backgroundRepeat: "no-repeat",
-      })}
-    >
-      <Container
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          pt: { xs: 20, sm: 30 },
-          pb: { xs: 16, sm: 20 },
-        }}
-      >
-        <Stack spacing={2} useFlexGap sx={{ width: { xs: "100%", sm: "70%" } }}>
-          <Typography
+    <>
+      <Header />
+      <Hero >
+      <Typography
             variant="h1"
             sx={{
               flexDirection: { xs: "column", md: "row" },
               alignSelf: "center",
               textAlign: "center",
-              fontSize: "clamp(3rem, 10vw, 5rem)",
+              fontSize: "clamp(2rem, 10vw, 5rem)",
             }}
           >
             Loodgietersbedrijf
@@ -78,8 +67,18 @@ export default function Hero() {
               </Typography>
             </Button>
           </Stack>
-        </Stack>
-      </Container>
-    </Box>
+      </Hero>
+      <Box sx={{ bgcolor: 'background.default' }}>
+        <OverMij />
+        <Divider />
+        <Reviews />
+        <Divider />
+        <Diensten />
+        <Divider />
+        <FAQ />
+        <Divider />
+        <Footer /> 
+      </Box>
+    </>
   );
 }

@@ -60,8 +60,13 @@ export default function FAQ() {
               gutterBottom
               sx={{ maxWidth: { sm: '100%', md: '70%' } }}
             >
-              U kunt telefonisch meteen contact opnemen via 0614149298 ook kunt u mij gerust een email sturen info@loodgieterjuffermans.nl
+              U kunt telefonisch meteen contact opnemen, ook kunt u mij gerust een email sturen
+
             </Typography>
+            <ul>
+                <li>0614149298</li>
+                <li>info@loodgieterjuffermans.nl</li>
+              </ul>
           </AccordionDetails>
         </Accordion>
         <Accordion

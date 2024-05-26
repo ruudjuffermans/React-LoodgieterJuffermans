@@ -5,14 +5,13 @@ import Container from '@mui/material/Container';
 import IconButton from '@mui/material/IconButton';
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
-import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 
 import FacebookIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/X';
 
-import Logo from "../assets/logo/logo-white-bg.png"
+import Logo from "../assets/logo/logo.svg"
 
 const logoStyle = {
   width: '140px',
@@ -37,7 +36,7 @@ export default function Footer() {
         flexDirection: 'column',
         alignItems: 'center',
         gap: { xs: 4, sm: 8 },
-        py: { xs: 8, sm: 10 },
+        py: { xs: 6, sm: 8 },
         textAlign: { sm: 'left', md: 'left' },
       }}
     >
@@ -65,7 +64,11 @@ export default function Footer() {
                 alt="logo of sitemark"
               />
             </Box>
+            <Typography>
+                Loodgietersbedrijf Juffermans
+              </Typography>
             <Stack direction="row" mt={2} spacing={1} useFlexGap>
+
             <Button variant="contained" color="primary" sx={{ flexShrink: 0 }}>
                 EMAIL
               </Button>

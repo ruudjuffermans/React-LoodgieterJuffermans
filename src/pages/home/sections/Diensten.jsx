@@ -20,18 +20,21 @@ const items = [
     description:
       "Met precisie en vakmanschap brengen we duurzaamheid en schoonheid samen in elk zinkwerk project",
     image: Img1,
+    link: '/dienst-lood-zink'
   },
   {
     title: "Loodwerk",
     description:
       "Vertrouw op onze deskundigheid voor nauwkeurig en betrouwbaar loodwerk dat de tand des tijds doorstaat.",
     image: Img2,
+    link: '/dienst-lood-zink'
   },
   {
     title: "Dakdekken",
     description:
       "Bescherm uw huis met onze professionele dakdekkingsservices, ontworpen voor maximale duurzaamheid en weerbestendigheid.",
     image: Img3,
+    link: '/dienst-dakdekken'
   },
 ];
 
@@ -64,27 +67,22 @@ export default function Gallerij() {
           <Grid
             container
             item
-            gap={10}
+            gap={{xs: 2,  s: 5 }}
             sx={{ display: { xs: "auto", sm: "none" } }}
           >
-            {items.map(({ title }, index) => (
+            {items.map(({ title, link }, index) => (
               <Chip
                 key={index}
                 label={title}
                 onClick={() => handleItemClick(index)}
                 sx={{
-                  borderColor: (theme) => {
-                    if (theme.palette.mode === "light") {
-                      return selectedItemIndex === index ? "primary.light" : "";
-                    }
+                  borderColor: () => {
                     return selectedItemIndex === index ? "primary.light" : "";
                   },
                   background: (theme) => {
-                    if (theme.palette.mode === "light") {
-                      return selectedItemIndex === index ? "none" : "";
-                    }
                     return selectedItemIndex === index ? "none" : "";
                   },
+                  m: 0,
                   backgroundColor:
                     selectedItemIndex === index ? "primary.main" : "",
                   "& .MuiChip-label": {
@@ -130,6 +128,7 @@ export default function Gallerij() {
                 {selectedFeature.description}
               </Typography>
               <Link
+                href={selectedFeature.link}
                 color="primary"
                 variant="body2"
                 fontWeight="bold"
@@ -156,7 +155,7 @@ export default function Gallerij() {
             useFlexGap
             sx={{ width: "100%", display: { xs: "none", sm: "flex" } }}
           >
-            {items.map(({ title, description }, index) => (
+            {items.map(({ title, description, link }, index) => (
               <Card
                 key={index}
                 variant="outlined"
@@ -203,6 +202,7 @@ export default function Gallerij() {
                       {description}
                     </Typography>
                     <Link
+                      href={link}
                       color="primary"
                       variant="body2"
                       fontWeight="bold"

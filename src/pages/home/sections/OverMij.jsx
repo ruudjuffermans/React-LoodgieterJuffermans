@@ -8,6 +8,7 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 
 import GalleryImg from "../../../assets/img/home1.jpeg";
+import { Button } from "@mui/material";
 
 const userTestimonials = [
   { img: GalleryImg },
@@ -42,7 +43,7 @@ export default function Diensten() {
 
   return (
     <Container
-      id="testimonials"
+      id="over-mij"
       sx={{
         pt: { xs: 4, sm: 12 },
         pb: { xs: 8, sm: 16 },
@@ -52,7 +53,62 @@ export default function Diensten() {
         gap: { xs: 3, sm: 6 },
       }}
     >
-      <Grid container spacing={2}>
+      <Card
+        variant="outlined"
+        component={Button}
+        onClick={() => {}}
+        sx={{
+          p: 3,
+          height: "fit-content",
+          width: "100%",
+          background: "none",
+          padding: 1,
+          borderColor: "primary.light",
+        }}
+      >
+        <Box
+          sx={{
+            width: "100%",
+            display: "flex",
+            textAlign: "left",
+            flexDirection: { xs: "column", md: "row" },
+            alignItems: { md: "center" },
+            gap: 2.5,
+          }}
+        >
+          <Box sx={{ textTransform: "none" }}>
+            <Typography color="text.primary" variant="body2" fontWeight="bold">
+              Over Mij
+            </Typography>
+            <Typography color="text.secondary" variant="body2" sx={{ my: 0.5 }}>
+              Ik ben gespecialiseerd in alles wat met zink en loodwerk te maken
+              heeft...
+            </Typography>
+            <Link
+              href={"/over-mij"}
+              color="primary"
+              variant="body2"
+              fontWeight="bold"
+              sx={{
+                display: "inline-flex",
+                alignItems: "center",
+                "& > svg": { transition: "0.2s" },
+                "&:hover > svg": { transform: "translateX(2px)" },
+              }}
+              onClick={(event) => {
+                event.stopPropagation();
+              }}
+            >
+              <span>Lees meer</span>
+              <ChevronRightRoundedIcon
+                fontSize="small"
+                sx={{ mt: "1px", ml: "2px" }}
+              />
+            </Link>
+          </Box>
+        </Box>
+      </Card>
+      {/* <Grid container spacing={2}>
         <Grid item xs={6} sm={8} md={6} sx={{ display: "flex" }}>
           <Box>
             <Box>
@@ -69,7 +125,7 @@ export default function Diensten() {
                 te maken heeft.
               </Typography>
               <Link
-                href={"http://www.google.com"}
+                href={"/over-mij"}
                 color="primary"
                 variant="body2"
                 fontWeight="bold"
@@ -111,7 +167,7 @@ export default function Diensten() {
             </Card>
           </Grid>
         ))}
-      </Grid>
+      </Grid> */}
     </Container>
   );
 }

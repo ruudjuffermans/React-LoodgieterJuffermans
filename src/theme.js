@@ -61,43 +61,25 @@ const getDesignTokens = (mode) => ({
       main: brand[500],
       dark: brand[800],
       contrastText: brand[50],
-      ...(mode === 'dark' && {
-        contrastText: brand[100],
-        light: brand[300],
-        main: brand[400],
-        dark: brand[800],
-      }),
     },
     secondary: {
       light: secondary[300],
       main: secondary[500],
       dark: secondary[800],
-      ...(mode === 'dark' && {
-        light: secondary[400],
-        main: secondary[500],
-        dark: secondary[900],
-      }),
     },
     warning: {
       main: '#F7B538',
       dark: '#F79F00',
-      ...(mode === 'dark' && { main: '#F7B538', dark: '#F79F00' }),
     },
     error: {
       light: red[50],
       main: red[500],
       dark: red[700],
-      ...(mode === 'dark' && { light: '#D32F2F', main: '#D32F2F', dark: '#B22A2A' }),
     },
     success: {
       light: green[300],
       main: green[400],
       dark: green[800],
-      ...(mode === 'dark' && {
-        light: green[400],
-        main: green[500],
-        dark: green[700],
-      }),
     },
     grey: {
       50: gray[50],
@@ -111,22 +93,17 @@ const getDesignTokens = (mode) => ({
       800: gray[800],
       900: gray[900],
     },
-    divider: mode === 'dark' ? alpha(gray[600], 0.3) : alpha(gray[300], 0.5),
+    divider: alpha(gray[300], 0.5),
     background: {
       default: '#fff',
       paper: gray[50],
-      ...(mode === 'dark' && { default: gray[900], paper: gray[800] }),
     },
     text: {
       primary: gray[800],
       secondary: gray[600],
-      ...(mode === 'dark' && { primary: '#fff', secondary: gray[400] }),
     },
     action: {
       selected: `${alpha(brand[200], 0.2)}`,
-      ...(mode === 'dark' && {
-        selected: alpha(brand[800], 0.2),
-      }),
     },
   },
   typography: {
@@ -179,7 +156,7 @@ const getDesignTokens = (mode) => ({
   },
 });
 
-export default function getLPTheme(mode) {
+export default function getTheme(mode) {
   return {
     ...getDesignTokens(mode),
     components: {
@@ -206,10 +183,6 @@ export default function getLPTheme(mode) {
               borderBottomLeftRadius: 10,
               borderBottomRightRadius: 10,
             },
-            ...(theme.palette.mode === 'dark' && {
-              backgroundColor: gray[900],
-              borderColor: gray[800],
-            }),
           }),
         },
       },
@@ -219,9 +192,6 @@ export default function getLPTheme(mode) {
             border: 'none',
             borderRadius: 8,
             '&:hover': { backgroundColor: gray[100] },
-            ...(theme.palette.mode === 'dark' && {
-              '&:hover': { backgroundColor: gray[800] },
-            }),
           }),
         },
       },
@@ -238,12 +208,6 @@ export default function getLPTheme(mode) {
             '& .Mui-selected': {
               color: brand[500],
             },
-            ...(theme.palette.mode === 'dark' && {
-              '& .Mui-selected': {
-                color: '#fff',
-              },
-              boxShadow: `0 4px 16px ${alpha(brand[700], 0.5)}`,
-            }),
           }),
         },
       },
@@ -254,11 +218,6 @@ export default function getLPTheme(mode) {
             textTransform: 'none',
             borderRadius: '10px',
             fontWeight: 500,
-            ...(theme.palette.mode === 'dark' && {
-              color: gray[400],
-              boxShadow: '0 4px 16px rgba(0, 0, 0, 0.5)',
-              '&.Mui-selected': { color: brand[300] },
-            }),
           }),
         },
       },
@@ -300,7 +259,7 @@ export default function getLPTheme(mode) {
                 background: brand[500],
                 backgroundImage: `linear-gradient(to bottom, ${brand[400]}, ${brand[600]})`,
                 boxShadow: `inset 0 1px ${alpha(brand[300], 0.4)}`,
-                outline: `1px solid ${brand[700]}`,
+                outline: `1px solid white`,
                 '&:hover': {
                   background: brand[400],
                   backgroundImage: 'none',
@@ -323,24 +282,6 @@ export default function getLPTheme(mode) {
                 borderColor: brand[200],
               },
             }),
-            ...(theme.palette.mode === 'dark' && {
-              ...(ownerState.variant === 'outlined' && {
-                backgroundColor: alpha(brand[600], 0.1),
-                borderColor: brand[700],
-                color: brand[300],
-                '&:hover': {
-                  backgroundColor: alpha(brand[600], 0.3),
-                  borderColor: brand[700],
-                },
-              }),
-              ...(ownerState.variant === 'text' && {
-                color: brand[300],
-                '&:hover': {
-                  backgroundColor: alpha(brand[600], 0.3),
-                  borderColor: brand[700],
-                },
-              }),
-            }),
           }),
         },
       },
@@ -358,20 +299,6 @@ export default function getLPTheme(mode) {
                 borderColor: brand[300],
                 boxShadow: `0 0 24px ${brand[100]}`,
               },
-            }),
-            ...(theme.palette.mode === 'dark' && {
-              backgroundColor: alpha(gray[800], 0.6),
-              border: `1px solid ${alpha(gray[700], 0.3)}`,
-              ...(ownerState.variant === 'outlined' && {
-                background: `linear-gradient(to bottom, ${gray[900]}, ${alpha(
-                  gray[800],
-                  0.5,
-                )})`,
-                '&:hover': {
-                  borderColor: brand[700],
-                  boxShadow: `0 0 24px ${brand[800]}`,
-                },
-              }),
             }),
           }),
         },
@@ -399,23 +326,6 @@ export default function getLPTheme(mode) {
             '& .MuiChip-icon': {
               color: brand[500],
             },
-            ...(theme.palette.mode === 'dark' && {
-              background: `linear-gradient(to bottom right, ${brand[700]}, ${brand[900]})`,
-              borderColor: `${alpha(brand[500], 0.5)}`,
-              '&:hover': {
-                backgroundColor: brand[600],
-              },
-              '&:focus-visible': {
-                borderColor: brand[200],
-                backgroundColor: brand[600],
-              },
-              '& .MuiChip-label': {
-                color: brand[200],
-              },
-              '& .MuiChip-icon': {
-                color: brand[200],
-              },
-            }),
           }),
         },
       },
@@ -423,9 +333,6 @@ export default function getLPTheme(mode) {
         styleOverrides: {
           root: ({ theme }) => ({
             borderColor: `${alpha(gray[200], 0.8)}`,
-            ...(theme.palette.mode === 'dark' && {
-              borderColor: `${alpha(gray[700], 0.4)}`,
-            }),
           }),
         },
       },
@@ -454,9 +361,6 @@ export default function getLPTheme(mode) {
               width: '100%',
               opacity: 1,
             },
-            ...(theme.palette.mode === 'dark' && {
-              color: brand[200],
-            }),
           }),
         },
       },
@@ -466,9 +370,6 @@ export default function getLPTheme(mode) {
             borderRadius: '99px',
             color: gray[500],
             fontWeight: 500,
-            ...(theme.palette.mode === 'dark' && {
-              color: gray[300],
-            }),
           }),
         },
       },
@@ -477,9 +378,6 @@ export default function getLPTheme(mode) {
           root: ({ theme }) => ({
             backgroundImage: 'none',
             backgroundColor: gray[100],
-            ...(theme.palette.mode === 'dark' && {
-              backgroundColor: alpha(gray[900], 0.6),
-            }),
           }),
         },
       },
@@ -511,29 +409,6 @@ export default function getLPTheme(mode) {
               height: 16,
               margin: 2,
             },
-            ...(theme.palette.mode === 'dark' && {
-              width: 36,
-              height: 24,
-              padding: 0,
-              transition: 'background-color 100ms ease-in',
-              '&:hover': {
-                '& .MuiSwitch-track': {
-                  backgroundColor: brand[600],
-                },
-              },
-              '& .MuiSwitch-switchBase': {
-                '&.Mui-checked': {
-                  transform: 'translateX(13px)',
-                },
-              },
-              '& .MuiSwitch-thumb': {
-                boxShadow: '0 0 2px 2px rgba(0, 0, 0, 0.2)',
-                backgroundColor: '#FFF',
-                width: 16,
-                height: 16,
-                margin: 2,
-              },
-            }),
           }),
           switchBase: {
             height: 24,
@@ -581,31 +456,6 @@ export default function getLPTheme(mode) {
                 outlineColor: brand[200],
               },
             },
-            ...(theme.palette.mode === 'dark' && {
-              '& .MuiOutlinedInput-root': {
-                boxSizing: 'border-box',
-                minWidth: 280,
-                minHeight: 40,
-                height: '100%',
-                borderRadius: '10px',
-                border: '1px solid',
-                borderColor: gray[600],
-                transition: 'border-color 120ms ease-in',
-                '& fieldset': {
-                  border: 'none',
-                  boxShadow: ' 0px 2px 4px rgba(0, 0, 0, 0.4)',
-                  background: `${alpha(gray[800], 0.4)}`,
-                },
-                '&:hover': {
-                  borderColor: brand[300],
-                },
-                '&.Mui-focused': {
-                  borderColor: brand[400],
-                  outline: '4px solid',
-                  outlineColor: alpha(brand[500], 0.5),
-                },
-              },
-            }),
           }),
         },
       },
