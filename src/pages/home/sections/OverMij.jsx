@@ -5,41 +5,10 @@ import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import Grid from "@mui/material/Grid";
 
-import GalleryImg from "../../../assets/img/home1.jpeg";
 import { Button } from "@mui/material";
 
-const userTestimonials = [
-  { img: GalleryImg },
-  { img: GalleryImg },
-  { img: GalleryImg },
-  { img: GalleryImg },
-  { img: GalleryImg },
-  { img: GalleryImg },
-  { img: GalleryImg },
-  { img: GalleryImg },
-  { img: GalleryImg },
-];
-
 export default function Diensten() {
-  const [imageCount, setImageCount] = React.useState(3);
-
-  React.useEffect(() => {
-    const handleResize = () => {
-      const width = window.innerWidth;
-      if (width < 700) {
-        setImageCount(3);
-      } else if (width >= 700 && width < 1000) {
-        setImageCount(4);
-      } else {
-        setImageCount(9);
-      }
-    };
-    window.addEventListener("resize", handleResize);
-    handleResize();
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   return (
     <Container
