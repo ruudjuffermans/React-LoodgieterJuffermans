@@ -2,14 +2,9 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
-import IconButton from '@mui/material/IconButton';
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-
-import FacebookIcon from '@mui/icons-material/GitHub';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import TwitterIcon from '@mui/icons-material/X';
 
 import Logo from "../assets/logo/logo.svg"
 
@@ -123,13 +118,13 @@ export default function Footer() {
           <Typography variant="body2" fontWeight={600}>
             Paginas
           </Typography>
-          <Link color="text.secondary" href="#">
+          <Link color="text.secondary" href="/gallerij">
             Fotogalerij
           </Link>
-          <Link color="text.secondary" href="#">
+          <Link color="text.secondary" href="/diensten">
             Diensten
           </Link>
-          <Link color="text.secondary" href="#">
+          <Link color="text.secondary" href="/regios">
             Regios
           </Link>
         </Box>
@@ -157,40 +152,6 @@ export default function Footer() {
           </Link>
           <Copyright />
         </div>
-        <Stack
-          direction="row"
-          justifyContent="left"
-          spacing={1}
-          useFlexGap
-          sx={{
-            color: 'text.secondary',
-          }}
-        >
-          <IconButton
-            color="inherit"
-            href="https://github.com/mui"
-            aria-label="GitHub"
-            sx={{ alignSelf: 'center' }}
-          >
-            <FacebookIcon />
-          </IconButton>
-          <IconButton
-            color="inherit"
-            href="https://twitter.com/MaterialUI"
-            aria-label="X"
-            sx={{ alignSelf: 'center' }}
-          >
-            <TwitterIcon />
-          </IconButton>
-          <IconButton
-            color="inherit"
-            href="https://www.linkedin.com/company/mui/"
-            aria-label="LinkedIn"
-            sx={{ alignSelf: 'center' }}
-          >
-            <LinkedInIcon />
-          </IconButton>
-        </Stack>
       </Box>
     </Container>
   );

@@ -53,7 +53,9 @@ export default function Home() {
             useFlexGap
             sx={{ width: { xs: "auto" } }}
           >
-            <Button variant="contained" color="primary" sx={{ flexShrink: 0 }}>
+            <a href="tel:0614149298">
+            
+            <Button  variant="contained" color="primary" sx={{ flexShrink: 0 }}>
               <Typography
                 component="div"
                 variant="h6"
@@ -62,11 +64,21 @@ export default function Home() {
                   fontWeight: 500,
                   color: "white",
                 }}
-              >
-                TEL. 0643595090
+                >
+                TEL. 0614149298
               </Typography>
             </Button>
+                </a>
+
           </Stack>
+          <Typography
+                display="block"
+            textAlign="center"
+            color="text.secondary"
+            sx={{ alignSelf: "center", width: { sm: "100%", md: "80%" } }}
+          >
+            Of stuur mij gerust een <a href="mailto:info@loodgieterjuffermans.nl"> e-mail</a>.
+          </Typography>
       </Hero>
         <Divider />
       <Box sx={{ bgcolor: 'background.default' }}>
