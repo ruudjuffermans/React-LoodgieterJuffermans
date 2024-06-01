@@ -63,8 +63,8 @@ export default function FAQ() {
 
             </Typography>
             <ul>
-                <li>0614149298</li>
-                <li>info@loodgieterjuffermans.nl</li>
+                <li><a href="tel:0614149298">0614149298</a></li>
+                <li><a href="mailto:info@loodgieterjuffermans.nl">info@loodgieterjuffermans.nl</a></li>
               </ul>
           </AccordionDetails>
         </Accordion>

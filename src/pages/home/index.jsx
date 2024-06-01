@@ -77,7 +77,7 @@ export default function Home() {
             color="text.secondary"
             sx={{ alignSelf: "center", width: { sm: "100%", md: "80%" } }}
           >
-            Of stuur mij gerust een <a href="mailto:info@loodgieterjuffermans.nl"> e-mail</a>.
+            Of stuur mij gerust een <a href="mailto:info@loodgieterjuffermans.nl"> mail</a>.
           </Typography>
       </Hero>
         <Divider />

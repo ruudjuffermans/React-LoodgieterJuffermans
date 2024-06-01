@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
@@ -17,7 +16,7 @@ function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" mt={1}>
       {'Copyright © '}
-      <Link href="https://mui.com/">Sitemark&nbsp;</Link>
+      <Link href="https://www.loodgieterjuffermans.nl/">Loodgietersbedrijf Juffermans&nbsp;</Link>
       {new Date().getFullYear()}
     </Typography>
   );
@@ -40,19 +39,20 @@ export default function Footer() {
     <Container
       sx={{
         display: 'flex',
-        flexDirection: 'column',
+        flexDirection: { xs: 'column'},
         alignItems: 'center',
         gap: { xs: 4, sm: 8 },
         py: { xs: 6, sm: 8 },
-        textAlign: { sm: 'left', md: 'left' },
+        textAlign: { sm: 'left'},
       }}
     >
       <Box
         sx={{
           display: 'flex',
-          flexDirection: { xs: 'row', sm: 'row' },
+          flexDirection: { xs: 'column', md: 'row' },
+          gap: { xs: '40px', md: '0px' },
+          paddingLeft: "50px",
           width: '100%',
-          justifyContent: 'space-between',
         }}
       >
         <Box
@@ -60,38 +60,40 @@ export default function Footer() {
             display: 'flex',
             flexDirection: 'column',
             gap: 4,
-            minWidth: { xs: '30%', sm: '50%' },
+            
+            width: { xs: '100%', md: '50%' },
           }}
         >
-          <Box sx={{ width: { xs: '50%', sm: '50%' } }}>
-            <Box sx={{ ml: '-15px' }}>
+        <Box>
+            <Box >
             <img
                 src={Logo}
                 style={logoStyle}
                 alt="logo of sitemark"
               />
-            </Box>
-            <Typography>
+            <Typography variant="body2" color="text.secondary" mt={2} fontWeight={600}>
                 Loodgietersbedrijf Juffermans
               </Typography>
-            <Stack direction="row" mt={2} spacing={1} useFlexGap>
-
-            <Button variant="contained" color="primary" sx={{ flexShrink: 0 }}>
-                EMAIL
-              </Button>
-              <Button variant="primary" color="primary" sx={{ flexShrink: 0 }}>
-                BEL
-              </Button>
+            </Box>
+            <Stack direction="row" spacing={1} useFlexGap>
+            <ul>
+                <li><a href="tel:0614149298">0614149298</a></li>
+                <li><a href="mailto:info@loodgieterjuffermans.nl">info@loodgieterjuffermans.nl</a></li>
+              </ul>
             </Stack>
           </Box>
         </Box>
+        <Box sx={{
+            width: { xs: '100%', md: '50%' },
+            }}>
         <Box
           sx={{
-            display: { xs: 'flex' },
+            display: { xs: 'inline-flex' },
             flexDirection: 'column',
+            width: "50%",
             gap: 1,
           }}
-        >
+          >
           <Typography variant="body2" fontWeight={600}>
             Secties
           </Typography>
@@ -110,11 +112,12 @@ export default function Footer() {
         </Box>
         <Box
           sx={{
-            display: { xs: 'flex' },
+            width: "50%",
+            display: { xs: 'inline-flex' },
             flexDirection: 'column',
             gap: 1,
           }}
-        >
+          >
           <Typography variant="body2" fontWeight={600}>
             Paginas
           </Typography>
@@ -128,6 +131,7 @@ export default function Footer() {
             Regios
           </Link>
         </Box>
+          </Box>
 
       </Box>
       <Box
@@ -141,15 +145,7 @@ export default function Footer() {
         }}
       >
         <div>
-          <Link color="text.secondary" href="#">
-            Privacy Policy
-          </Link>
-          <Typography display="inline" sx={{ mx: 0.5, opacity: 0.5 }}>
-            &nbsp;•&nbsp;
-          </Typography>
-          <Link color="text.secondary" href="#">
-            Terms of Service
-          </Link>
+
           <Copyright />
         </div>
       </Box>

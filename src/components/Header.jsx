@@ -93,7 +93,7 @@ function Header() {
             >
 
                 <MenuItem
-                  onClick={() => scrollToSection('over-mij')}
+                  onClick={() => scrollToSection('overmij')}
                   sx={{ py: '6px', px: '12px' }}
                 >
                   <Typography variant="body2" color="text.primary">
@@ -151,10 +151,11 @@ function Header() {
                       flexDirection: 'column',
                       alignItems: 'end',
                       flexGrow: 1,
+                      marginTop: "20px" 
                     }}
                   >
                   </Box>
-                  <MenuItem onClick={() => scrollToSection('over-mij')}>
+                  <MenuItem onClick={() => scrollToSection('overmij')}>
                   Over Mij
                   </MenuItem>
                   <MenuItem onClick={() => scrollToSection('reviews')}>
@@ -166,7 +167,6 @@ function Header() {
                   <MenuItem onClick={() => scrollToSection('faq')}>
                     FAQ
                   </MenuItem>
-                  <MenuItem onClick={() => scrollToSection('faq')}>FAQ</MenuItem>
                   <Divider />
                 </Box>
               </Drawer>
