@@ -1,12 +1,9 @@
 import * as React from "react";
-import Card from "@mui/material/Card";
 import Link from "@mui/material/Link";
 import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-
-import { Button } from "@mui/material";
 
 export default function Diensten() {
 
