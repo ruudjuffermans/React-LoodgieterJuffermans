@@ -29,6 +29,18 @@ function Copyright() {
 }
 
 export default function Footer() {
+  const scrollToSection = (sectionId) => {
+    const sectionElement = document.getElementById(sectionId);
+    const offset = 128;
+    if (sectionElement) {
+      const targetScroll = sectionElement.offsetTop - offset;
+      sectionElement.scrollIntoView({ behavior: 'smooth' });
+      window.scrollTo({
+        top: targetScroll,
+        behavior: 'smooth',
+      });
+    }
+  };
   return (
     <Container
       sx={{
@@ -88,16 +100,16 @@ export default function Footer() {
           <Typography variant="body2" fontWeight={600}>
             Secties
           </Typography>
-          <Link color="text.secondary" href="#">
+          <Link onClick={() => scrollToSection('over-mij')} color="text.secondary" >
             Over mij
           </Link>
-          <Link color="text.secondary" href="#">
+          <Link onClick={() => scrollToSection('diensten')}  color="text.secondary">
             Diensten
           </Link>
-          <Link color="text.secondary" href="#">
+          <Link color="text.secondary" onClick={() => scrollToSection('reviews')} >
             Reviews
           </Link>
-          <Link color="text.secondary" href="#">
+          <Link color="text.secondary" onClick={() => scrollToSection('faq')} >
             FAQ
           </Link>
         </Box>

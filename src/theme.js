@@ -1,5 +1,5 @@
 import { alpha } from '@mui/material/styles';
-import { red } from '@mui/material/colors';
+import { red, green, orange } from '@mui/material/colors';
 
 export const brand = {
   50: '#F0F7FF',
@@ -27,7 +27,8 @@ export const secondary = {
   900: '#23023B',
 };
 
-export const gray = {
+export const grey = {
+  0: '#FFFFFF',
   50: '#FBFCFE',
   100: '#EAF0F5',
   200: '#D6E2EB',
@@ -40,22 +41,8 @@ export const gray = {
   900: '#090E10',
 };
 
-export const green = {
-  50: '#F6FEF6',
-  100: '#E3FBE3',
-  200: '#C7F7C7',
-  300: '#A1E8A1',
-  400: '#51BC51',
-  500: '#1F7A1F',
-  600: '#136C13',
-  700: '#0A470A',
-  800: '#042F04',
-  900: '#021D02',
-};
-
-const getDesignTokens = (mode) => ({
+const getDesignTokens = () => ({
   palette: {
-    mode,
     primary: {
       light: brand[200],
       main: brand[500],
@@ -68,8 +55,8 @@ const getDesignTokens = (mode) => ({
       dark: secondary[800],
     },
     warning: {
-      main: '#F7B538',
-      dark: '#F79F00',
+      main: orange[300],
+      dark: orange[500],
     },
     error: {
       light: red[50],
@@ -82,25 +69,25 @@ const getDesignTokens = (mode) => ({
       dark: green[800],
     },
     grey: {
-      50: gray[50],
-      100: gray[100],
-      200: gray[200],
-      300: gray[300],
-      400: gray[400],
-      500: gray[500],
-      600: gray[600],
-      700: gray[700],
-      800: gray[800],
-      900: gray[900],
+      50: grey[50],
+      100: grey[100],
+      200: grey[200],
+      300: grey[300],
+      400: grey[400],
+      500: grey[500],
+      600: grey[600],
+      700: grey[700],
+      800: grey[800],
+      900: grey[900],
     },
-    divider: alpha(gray[300], 0.5),
+    divider: alpha(grey[300], 0.5),
     background: {
-      default: '#fff',
-      paper: gray[50],
+      default: grey[0],
+      paper: grey[50],
     },
     text: {
-      primary: gray[800],
-      secondary: gray[600],
+      primary: grey[800],
+      secondary: grey[600],
     },
     action: {
       selected: `${alpha(brand[200], 0.2)}`,
@@ -156,9 +143,9 @@ const getDesignTokens = (mode) => ({
   },
 });
 
-export default function getTheme(mode) {
+export default function getTheme() {
   return {
-    ...getDesignTokens(mode),
+    ...getDesignTokens(),
     components: {
       MuiAccordion: {
         defaultProps: {
@@ -169,9 +156,9 @@ export default function getTheme(mode) {
           root: ({ theme }) => ({
             padding: 8,
             overflow: 'clip',
-            backgroundColor: '#fff',
+            backgroundColor: grey[0],
             border: '1px solid',
-            borderColor: gray[100],
+            borderColor: grey[100],
             ':before': {
               backgroundColor: 'transparent',
             },
@@ -191,7 +178,7 @@ export default function getTheme(mode) {
           root: ({ theme }) => ({
             border: 'none',
             borderRadius: 8,
-            '&:hover': { backgroundColor: gray[100] },
+            '&:hover': { backgroundColor: grey[100] },
           }),
         },
       },
@@ -204,7 +191,7 @@ export default function getTheme(mode) {
         styleOverrides: {
           root: ({ theme }) => ({
             borderRadius: '10px',
-            boxShadow: `0 4px 16px ${alpha(gray[400], 0.2)}`,
+            boxShadow: `0 4px 16px ${alpha(grey[400], 0.2)}`,
             '& .Mui-selected': {
               color: brand[500],
             },
@@ -242,7 +229,7 @@ export default function getTheme(mode) {
           root: ({ theme, ownerState }) => ({
             boxSizing: 'border-box',
             boxShadow: 'none',
-            borderRadius: '10px',
+            borderRadius: '5px',
             textTransform: 'none',
             '&:active': {
               transform: 'scale(0.98)',
@@ -251,13 +238,13 @@ export default function getTheme(mode) {
               maxHeight: '32px',
             }),
             ...(ownerState.size === 'medium' && {
-              height: '40px',
+              height: '60px',
             }),
             ...(ownerState.variant === 'contained' &&
               ownerState.color === 'primary' && {
                 color: brand[50],
                 background: brand[500],
-                backgroundImage: `linear-gradient(to bottom, ${brand[400]}, ${brand[600]})`,
+                backgroundImage: `linear-gradient(to bottom, ${brand[500]}, ${brand[600]})`,
                 boxShadow: `inset 0 1px ${alpha(brand[300], 0.4)}`,
                 outline: `1px solid white`,
                 '&:hover': {
@@ -288,13 +275,13 @@ export default function getTheme(mode) {
       MuiCard: {
         styleOverrides: {
           root: ({ theme, ownerState }) => ({
-            backgroundColor: gray[50],
+            backgroundColor: grey[50],
             borderRadius: 10,
-            border: `1px solid ${alpha(gray[200], 0.8)}`,
+            border: `1px solid ${alpha(grey[200], 0.8)}`,
             boxShadow: 'none',
             transition: 'background-color, border, 80ms ease',
             ...(ownerState.variant === 'outlined' && {
-              background: `linear-gradient(to bottom, #FFF, ${gray[50]})`,
+              background: `linear-gradient(to bottom, #FFF, ${grey[50]})`,
               '&:hover': {
                 borderColor: brand[300],
                 boxShadow: `0 0 24px ${brand[100]}`,
@@ -332,7 +319,7 @@ export default function getTheme(mode) {
       MuiDivider: {
         styleOverrides: {
           root: ({ theme }) => ({
-            borderColor: `${alpha(gray[200], 0.8)}`,
+            borderColor: `${alpha(grey[200], 0.8)}`,
           }),
         },
       },
@@ -368,7 +355,7 @@ export default function getTheme(mode) {
         styleOverrides: {
           root: ({ theme }) => ({
             borderRadius: '99px',
-            color: gray[500],
+            color: grey[500],
             fontWeight: 500,
           }),
         },
@@ -377,7 +364,7 @@ export default function getTheme(mode) {
         styleOverrides: {
           root: ({ theme }) => ({
             backgroundImage: 'none',
-            backgroundColor: gray[100],
+            backgroundColor: grey[100],
           }),
         },
       },
@@ -440,7 +427,7 @@ export default function getTheme(mode) {
               height: '100%',
               borderRadius: '10px',
               border: '1px solid',
-              borderColor: gray[200],
+              borderColor: grey[200],
               transition: 'border-color 120ms ease-in',
               '& fieldset': {
                 border: 'none',

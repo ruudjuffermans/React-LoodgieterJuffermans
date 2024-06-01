@@ -26,7 +26,7 @@ jobs:
 
     - name: Setup Node.js
       uses: actions/setup-node@v2
-      with:
+      with: 
         node-version: 16
     - run: npm i
     - run: npm run build

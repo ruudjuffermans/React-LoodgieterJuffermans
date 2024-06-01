@@ -68,6 +68,7 @@ export default function Home() {
             </Button>
           </Stack>
       </Hero>
+        <Divider />
       <Box sx={{ bgcolor: 'background.default' }}>
         <OverMij />
         <Divider />
